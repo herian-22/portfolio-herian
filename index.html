@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Judul akan diatur oleh JavaScript -->
+    <title>Herian Perdana | Embedded & AI Engineer</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat ikon Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Menggunakan font Inter dari Tailwind */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style untuk tombol bahasa yang aktif */
+        .lang-btn.active {
+            color: #4f46e5; /* indigo-700 */
+            font-weight: 700;
+        }
+        /* Style untuk tombol bahasa yang non-aktif */
+        .lang-btn {
+            color: #6b7280; /* gray-500 */
+            font-weight: 500;
+        }
+        .lang-btn:hover:not(.active) {
+            color: #312e81; /* indigo-900 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <!-- ======= Header / Navigasi ======= -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Nama/Logo -->
+            <a href="#hero" class="text-2xl font-bold text-indigo-700 hover:text-indigo-900 transition-colors">
+                Herian Perdana
+            </a>
+            
+            <!-- Menu Desktop & Pengalih Bahasa -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors" data-key="nav_about">About</a>
+                <a href="#skills" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors" data-key="nav_skills">Skills</a>
+                <a href="#experience" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors" data-key="nav_experience">Experience</a>
+                <a href="#projects" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors" data-key="nav_projects">Projects</a>
+                <a href="#education" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors" data-key="nav_education">Education</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-700 font-medium transition-colors" data-key="nav_contact">Contact</a>
+                
+                <!-- Pengalih Bahasa Desktop -->
+                <div class="flex items-center space-x-2 ml-4">
+                    <button id="lang-en" class="lang-btn text-sm">EN</button>
+                    <span class="text-gray-300">|</span>
+                    <button id="lang-id" class="lang-btn text-sm">ID</button>
+                </div>
+            </div>
+
+            <!-- Tombol Menu Mobile -->
+            <button id="mobileMenuButton" class="md:hidden" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+
+        <!-- Menu Mobile (Dropdown) -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#about" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50" data-key="nav_about">About</a>
+            <a href="#skills" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50" data-key="nav_skills">Skills</a>
+            <a href="#experience" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50" data-key="nav_experience">Experience</a>
+            <a href="#projects" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50" data-key="nav_projects">Projects</a>
+            <a href="#education" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50" data-key="nav_education">Education</a>
+            <a href="#contact" class="block px-6 py-3 text-gray-600 hover:bg-indigo-50" data-key="nav_contact">Contact</a>
+            
+            <!-- Pengalih Bahasa Mobile -->
+            <div class="flex justify-center items-center space-x-2 py-3">
+                <button id="lang-en-mob" class="lang-btn text-sm">EN</button>
+                <span class="text-gray-400">|</span>
+                <button id="lang-id-mob" class="lang-btn text-sm">ID</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======= Konten Utama ======= -->
+    <main>
+
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center text-center md:text-left">
+                <!-- Gambar Profil -->
+                <img src="foto-herian.jpg" 
+                     alt="Herian Perdana" 
+                     class="w-40 h-40 rounded-full shadow-xl border-4 border-white mb-8 md:mb-0 md:mr-12"
+                     onerror="this.src='https://placehold.co/160x160/4338ca/ffffff?text=HP'; this.onerror=null;">
+                
+                <!-- Teks Hero -->
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900" data-key="hero_name">
+                        Herian Perdana, S.T.
+                    </h1>
+                    <p class="text-2xl md:text-3xl text-indigo-700 font-medium mt-2" data-key="hero_title">
+                        Embedded System & AI Engineer
+                    </p>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl" data-key="hero_subtitle">
+                        "Building Intelligent and Secure Embedded Systems"
+                    </p>
+                    <!-- Ikon Sosial & Tombol CV -->
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
+                        <!-- Ikon Sosial -->
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/herian-perdana-16b22a22a" target="_blank" rel="noopener noreferrer" 
+                               class="text-gray-500 hover:text-indigo-700 transition-colors" aria-label="LinkedIn">
+                                <i data-lucide="linkedin" class="w-8 h-8"></i>
+                            </a>
+                            <a href="https://github.com/herian-22" target="_blank" rel="noopener noreferrer" 
+                               class="text-gray-500 hover:text-indigo-700 transition-colors" aria-label="GitHub">
+                                <i data-lucide="github" class="w-8 h-8"></i>
+                            </a>
+                        </div>
+                        <!-- Tombol Unduh CV -->
+                        <a id="cv-download-link"
+                           href="CV-Herian-Perdana-EN.pdf" 
+                           download
+                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-800 transition-colors shadow-md"
+                           data-key="hero_cv_button">
+                            <i data-lucide="download" class="w-5 h-5 mr-2"></i>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-key="about_title">Profile Summary</h2>
+                <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed" data-key="about_desc">
+                    Electrical Engineering graduate from the University of Bengkulu (GPA 3.51). Experienced in embedded systems, firmware development, Linux integration, and AI on edge devices. Passionate about merging embedded hardware with AI to create smart and secure industrial solutions.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======= Skills Section ======= -->
+        <section id="skills" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-key="skills_title">Core Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Kategori Skill 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="code" class="w-8 h-8 text-indigo-700 mr-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-900" data-key="skill_cat_1">Programming</h3>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>C, C++</li>
+                            <li>Python</li>
+                            <li>MicroPython</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kategori Skill 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="cpu" class="w-8 h-8 text-indigo-700 mr-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-900" data-key="skill_cat_2">Embedded Hardware</h3>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>STM32, ESP32</li>
+                            <li>Raspberry Pi</li>
+                            <li>Renesas RZ/V2H</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kategori Skill 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="brain-circuit" class="w-8 h-8 text-indigo-700 mr-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-900" data-key="skill_cat_3">AI & Vision</h3>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>YOLOV5</li>
+                            <li>ONNX Runtime</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kategori Skill 4 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="shield-check" class="w-8 h-8 text-indigo-700 mr-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-900" data-key="skill_cat_4">DevSecOps</h3>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Docker, GitHub Actions</li>
+                            <li>SAST, DAST, Trivy</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kategori Skill 5 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="terminal" class="w-8 h-8 text-indigo-700 mr-4"></i>
+                            <h3 class="text-2xl font-semibold text-gray-900" data-key="skill_cat_5">Linux Systems</h3>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>Yocto Build</li>
+                            <li>RTOS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= Experience Section ======= -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-key="exp_title">Professional Experience</h2>
+                <div class="relative max-w-3xl mx-auto">
+                    <!-- Garis Waktu -->
+                    <div class="absolute left-4 top-1 h-full w-1 bg-indigo-200"></div>
+
+                    <!-- Item Pengalaman 1 -->
+                    <div class="mb-12 pl-12 relative">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-indigo-700 rounded-full border-4 border-white flex items-center justify-center">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="block text-sm font-semibold text-indigo-600">2025</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1" data-key="exp_1_company">Aranus Technology</h3>
+                        <p class="text-lg font-medium text-gray-700" data-key="exp_1_role">Embedded System Engineer</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li data-key="exp_1_desc_1">Developed firmware and AI integration for embedded Linux systems.</li>
+                            <li data-key="exp_1_desc_2">Built custom Yocto Linux images for edge devices.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Item Pengalaman 2 -->
+                    <div class="mb-12 pl-12 relative">
+                        <div class="absolute left-0 top-1 w-8 h-8 bg-indigo-700 rounded-full border-4 border-white flex items-center justify-center">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="block text-sm font-semibold text-indigo-600">2024 - 2025</span>
+                        <h3 class="text-xl font-bold text-gray-900 mt-1" data-key="exp_2_company">PowerChina Gansu Energy</h3>
+                        <p class="text-lg font-medium text-gray-700" data-key="exp_2_role">Coal Inspector</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li data-key="exp_2_desc_1">Conducted inspections and maintenance for industrial operations.</li>
+                            <li data-key="exp_2_desc_2">Managed field technicians for coal distribution systems.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= Projects Section ======= -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-key="projects_title">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Proyek 1 -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden group">
+                        <img src="user_interface.jpeg" alt="Embedded AI Vision System" class="w-full h-64 object-cover group-hover:opacity-90 transition-opacity"
+                             onerror="this.src='https://placehold.co/600x400/93c5fd/333333?text=AI+Vision'; this.onerror=null;">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2" data-key="proj_1_title">Embedded AI Vision System</h3>
+                            <p class="text-gray-700 mb-4" data-key="proj_1_desc">An attendance system powered by face recognition, implemented on a Renesas development board.</p>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">Renesas</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">AI</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">Face Recognition</span>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 2 -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden group">
+                        <img src="coffe-machiine.png" alt="Coffee Machine HMI" class="w-full h-64 object-cover group-hover:opacity-90 transition-opacity"
+                             onerror="this.src='https://placehold.co/600x400/a5b4fc/333333?text=Coffee+HMI'; this.onerror=null;">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2" data-key="proj_2_title">Industrial Coffee Machine HMI</h3>
+                            <p class="text-gray-700 mb-4" data-key="proj_2_desc">A real-time, AI-powered coffee machine interface using C++ and GTK on a Renesas RZ/V2H board with DRP-AI accelerator.</p>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">Renesas RZ/V2H</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">C++</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">GTK</span>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">AI</span>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 3 -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden group">
+                        <img src="iot.png" alt="IoT Smart Cage System" class="w-full h-64 object-cover group-hover:opacity-90 transition-opacity"
+                             onerror="this.src='https://placehold.co/600x400/86efac/333333?text=IoT+Smart+Cage'; this.onerror=null;">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2" data-key="proj_3_title">IoT Smart Cage System</h3>
+                            <p class="text-gray-700 mb-4" data-key="proj_3_desc">Automated environmental monitoring and control system for a smart cage using ESP32, MQTT, and various environmental sensors.</p>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">IoT</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">ESP32</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">MQTT</span>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 4 -->
+                    <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden group">
+                        <img src="devsecop.png" alt="DevSecOps Security Pipeline" class="w-full h-64 object-cover group-hover:opacity-90 transition-opacity"
+                             onerror="this.src='https://placehold.co/600x400/fde047/333333?text=DevSecOps'; this.onerror=null;">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2" data-key="proj_4_title">DevSecOps Security Pipeline</h3>
+                            <p class="text-gray-700 mb-4" data-key="proj_4_desc">A CI/CD pipeline integrated with DAST, SAST, and container scanning (Trivy) using GitHub Actions and Docker.</p>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">DevSecOps</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">CI/CD</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">GitHub Actions</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full mr-2 mb-2">Docker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= Education & Certification Section ======= -->
+        <section id="education" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-key="edu_title">Education & Certification</h2>
+                <div class="flex flex-col md:flex-row justify-center gap-8 max-w-4xl mx-auto">
+                    
+                    <!-- Edukasi -->
+                    <div class="bg-white p-8 rounded-lg shadow-md w-full">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="graduation-cap" class="w-10 h-10 text-indigo-700 mr-4"></i>
+                            <h3 class="text-2xl font-bold text-gray-900" data-key="edu_1_heading">Education</h3>
+                        </div>
+                        <p class="text-xl font-semibold text-gray-800 mt-4" data-key="edu_1_school">University of Bengkulu</p>
+                        <p class="text-lg text-gray-700" data-key="edu_1_degree">Bachelor of Electrical Engineering</p>
+                        <p class="text-gray-600 mt-1">2020 - 2024</p>
+                        <p class="text-gray-600 mt-1">GPA: 3.51</p>
+                    </div>
+
+                    <!-- Sertifikasi -->
+                    <div class="bg-white p-8 rounded-lg shadow-md w-full">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="award" class="w-10 h-10 text-indigo-700 mr-4"></i>
+                            <h3 class="text-2xl font-bold text-gray-900" data-key="edu_cert_heading">Certification</h3>
+                        </div>
+                        <p class="text-xl font-semibold text-gray-800 mt-4" data-key="edu_cert_title">DevSecOps Bootcamp - Enigma Camp 2.0</p>
+                        <p class="text-lg text-gray-700" data-key="edu_cert_desc">CI/CD Security Automation & Vulnerability Scanning</p>
+                        <p class="text-gray-600 mt-1">April 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-key="footer_title">Get In Touch</h2>
+            <p class="text-lg text-gray-300 max-w-lg mx-auto mb-8" data-key="footer_quote">
+                "Technology is best when it brings people together." - Matt Mullenweg
+            </p>
+            
+            <!-- Ikon Sosial Footer -->
+            <div class="flex justify-center space-x-6 mb-10">
+                <a href="https://www.linkedin.com/in/herian-perdana-16b22a22a" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block p-4 bg-gray-700 rounded-full hover:bg-indigo-600 hover:scale-110 transform transition-all" aria-label="LinkedIn">
+                    <i data-lucide="linkedin" class="w-8 h-8"></i>
+                </a>
+                <a href="https://github.com/herian-22" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block p-4 bg-gray-700 rounded-full hover:bg-indigo-600 hover:scale-110 transform transition-all" aria-label="GitHub">
+                    <i data-lucide="github" class="w-8 h-8"></i>
+                </a>
+            </div>
+            
+            <p class="text-gray-400" data-key="footer_copy">&copy; 2025 Herian Perdana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ======= Skrip JavaScript ======= -->
+    <script>
+        // --- DATA TERJEMAHAN ---
+        const translations = {
+            en: {
+                title: "Herian Perdana | Embedded & AI Engineer",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_experience: "Experience",
+                nav_projects: "Projects",
+                nav_education: "Education",
+                nav_contact: "Contact",
+                hero_name: "Herian Perdana, S.T.",
+                hero_title: "Embedded System & AI Engineer",
+                hero_subtitle: '"Building Intelligent and Secure Embedded Systems"',
+                hero_cv_button: '<i data-lucide="download" class="w-5 h-5 mr-2"></i>Download CV',
+                about_title: "Profile Summary",
+                about_desc: "Electrical Engineering graduate from the University of Bengkulu (GPA 3.51). Experienced in embedded systems, firmware development, Linux integration, and AI on edge devices. Passionate about merging embedded hardware with AI to create smart and secure industrial solutions.",
+                skills_title: "Core Skills",
+                skill_cat_1: "Programming",
+                skill_cat_2: "Embedded Hardware",
+                skill_cat_3: "AI & Vision",
+                skill_cat_4: "DevSecOps",
+                skill_cat_5: "Linux Systems",
+                exp_title: "Professional Experience",
+                exp_1_company: "Aranus Technology",
+                exp_1_role: "Embedded System Engineer",
+                exp_1_desc_1: "Developed firmware and AI integration for embedded Linux systems.",
+                exp_1_desc_2: "Built custom Yocto Linux images for edge devices.",
+                exp_2_company: "PowerChina Gansu Energy",
+                exp_2_role: "Coal Inspector",
+                exp_2_desc_1: "Conducted inspections and maintenance for industrial operations.",
+                exp_2_desc_2: "Managed field technicians for coal distribution systems.",
+                projects_title: "Featured Projects",
+                proj_1_title: "Embedded AI Vision System",
+                proj_1_desc: "An attendance system powered by face recognition, implemented on a Renesas development board.",
+                proj_2_title: "Industrial Coffee Machine HMI",
+                proj_2_desc: "A real-time, AI-powered coffee machine interface using C++ and GTK on a Renesas RZ/V2H board with DRP-AI accelerator.",
+                proj_3_title: "IoT Smart Cage System",
+                proj_3_desc: "Automated environmental monitoring and control system for a smart cage using ESP32, MQTT, and various environmental sensors.",
+                proj_4_title: "DevSecOps Security Pipeline",
+                proj_4_desc: "A CI/CD pipeline integrated with DAST, SAST, and container scanning (Trivy) using GitHub Actions and Docker.",
+                edu_title: "Education & Certification",
+                edu_1_heading: "Education",
+                edu_1_school: "University of Bengkulu",
+                edu_1_degree: "Bachelor of Electrical Engineering",
+                edu_cert_heading: "Certification",
+                edu_cert_title: "DevSecOps Bootcamp - Enigma Camp 2.0",
+                edu_cert_desc: "CI/CD Security Automation & Vulnerability Scanning",
+                footer_title: "Get In Touch",
+                footer_quote: '"Technology is best when it brings people together." - Matt Mullenweg',
+                footer_copy: "&copy; 2025 Herian Perdana. All rights reserved."
+            },
+            id: {
+                title: "Herian Perdana | Insinyur Sistem Tertanam & AI",
+                nav_about: "Tentang",
+                nav_skills: "Keahlian",
+                nav_experience: "Pengalaman",
+                nav_projects: "Proyek",
+                nav_education: "Pendidikan",
+                nav_contact: "Kontak",
+                hero_name: "Herian Perdana, S.T.",
+                hero_title: "Insinyur Sistem Tertanam & AI",
+                hero_subtitle: '"Membangun Sistem Tertanam yang Cerdas dan Aman"',
+                hero_cv_button: '<i data-lucide="download" class="w-5 h-5 mr-2"></i>Unduh CV',
+                about_title: "Ringkasan Profil",
+                about_desc: "Lulusan Teknik Elektro dari Universitas Bengkulu (IPK 3.51). Berpengalaman dalam sistem tertanam, pengembangan firmware, integrasi Linux, dan AI pada perangkat edge. Bersemangat menggabungkan perangkat keras tertanam dengan AI untuk menciptakan solusi industri yang cerdas dan aman.",
+                skills_title: "Keahlian Inti",
+                skill_cat_1: "Pemrograman",
+                skill_cat_2: "Perangkat Keras Tertanam",
+                skill_cat_3: "AI & Visi",
+                skill_cat_4: "DevSecOps",
+                skill_cat_5: "Sistem Linux",
+                exp_title: "Pengalaman Profesional",
+                exp_1_company: "Aranus Technology",
+                exp_1_role: "Insinyur Sistem Tertanam",
+                exp_1_desc_1: "Mengembangkan firmware dan integrasi AI untuk sistem Linux tertanam.",
+                exp_1_desc_2: "Membangun image Yocto Linux kustom untuk perangkat edge.",
+                exp_2_company: "PowerChina Gansu Energy",
+                exp_2_role: "Inspektur Batubara",
+                exp_2_desc_1: "Melakukan inspeksi dan pemeliharaan untuk operasi industri.",
+                exp_2_desc_2: "Mengelola teknisi lapangan untuk sistem distribusi batubara.",
+                projects_title: "Proyek Unggulan",
+                proj_1_title: "Sistem Visi AI Tertanam",
+                proj_1_desc: "Sistem absensi yang didukung oleh pengenalan wajah, diimplementasikan pada papan pengembangan Renesas.",
+                proj_2_title: "HMI Mesin Kopi Industrial",
+                proj_2_desc: "Antarmuka mesin kopi real-time berbasis AI menggunakan C++ dan GTK pada papan Renesas RZ/V2H dengan akselerator DRP-AI.",
+                proj_3_title: "Sistem Kandang Cerdas IoT",
+                proj_3_desc: "Sistem pemantauan dan kontrol lingkungan otomatis untuk kandang cerdas menggunakan ESP32, MQTT, dan berbagai sensor lingkungan.",
+                proj_4_title: "Pipeline Keamanan DevSecOps",
+                proj_4_desc: "Pipeline CI/CD yang terintegrasi dengan DAST, SAST, dan pemindaian kontainer (Trivy) menggunakan GitHub Actions dan Docker.",
+                edu_title: "Pendidikan & Sertifikasi",
+                edu_1_heading: "Pendidikan",
+                edu_1_school: "Universitas Bengkulu",
+                edu_1_degree: "Sarjana Teknik Elektro",
+                edu_cert_heading: "Sertifikasi",
+                edu_cert_title: "DevSecOps Bootcamp - Enigma Camp 2.0",
+                edu_cert_desc: "Otomatisasi Keamanan CI/CD & Pemindaian Kerentanan",
+                footer_title: "Hubungi Saya",
+                footer_quote: '"Teknologi adalah yang terbaik ketika menyatukan orang-orang." - Matt Mullenweg',
+                footer_copy: "&copy; 2025 Herian Perdana. Hak cipta dilindungi."
+            }
+        };
+
+        // --- LOGIKA PENGALIH BAHASA ---
+        const langButtons = [
+            document.getElementById('lang-en'),
+            document.getElementById('lang-id'),
+            document.getElementById('lang-en-mob'),
+            document.getElementById('lang-id-mob')
+        ];
+
+        // Fungsi untuk memperbarui teks di halaman
+        function updateLanguage(lang) {
+            if (!['en', 'id'].includes(lang)) {
+                console.warn(`Bahasa tidak didukung: ${lang}. Menggunakan 'en'.`);
+                lang = 'en';
+            }
+            
+            // Atur bahasa di tag <html> untuk aksesibilitas
+            document.documentElement.lang = lang;
+
+            // Atur judul dokumen
+            document.title = translations[lang].title;
+
+            // Perbarui semua elemen teks dengan data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Perbarui status aktif/non-aktif tombol
+            langButtons.forEach(btn => {
+                if (btn.id.includes(lang)) {
+                    btn.classList.add('active');
+                    btn.disabled = true;
+                } else {
+                    btn.classList.remove('active');
+                    btn.disabled = false;
+                }
+            });
+
+            // Perbarui tautan CV
+            const cvLink = document.getElementById('cv-download-link');
+            if (cvLink) {
+                if (lang === 'id') {
+                    // Asumsi nama file CV Bahasa Indonesia. Ubah jika perlu.
+                    cvLink.href = 'CV-Herian-Perdana-ID.pdf';
+                } else {
+                    cvLink.href = 'CV-Herian-Perdana-EN.pdf';
+                }
+            }
+
+            // Simpan pilihan bahasa
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Tambahkan event listener ke tombol bahasa
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.id.includes('en') ? 'en' : 'id';
+                updateLanguage(lang);
+            });
+        });
+
+        // --- LOGIKA MENU MOBILE ---
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tutup menu mobile saat link di-klik
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- INISIALISASI HALAMAN ---
+        // Panggil createIcons() dari Lucide untuk merender ikon
+        lucide.createIcons();
+
+        // Tetapkan bahasa saat memuat halaman
+        const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        updateLanguage(preferredLanguage);
+
+    </script>
+
+</body>
+</html>
