@@ -520,15 +520,10 @@
                 }
             });
 
-            // Perbarui tautan CV
+            // Perbarui tautan CV (hanya tersedia versi EN)
             const cvLink = document.getElementById('cv-download-link');
             if (cvLink) {
-                if (lang === 'id') {
-                    // Asumsi nama file CV Bahasa Indonesia. Ubah jika perlu.
-                    cvLink.href = 'CV-Herian-Perdana-ID.pdf';
-                } else {
-                    cvLink.href = 'CV-Herian-Perdana-EN.pdf';
-                }
+                cvLink.href = 'CV-Herian-Perdana-EN.pdf';
             }
 
             // Simpan pilihan bahasa
